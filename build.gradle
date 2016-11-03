@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+jar {
+	baseName = 'base-swing'
+    version = '1.0.0'
+    
+	manifest {
+		attributes provider: 'gradle'
+		attributes 'Implementation-Title': baseName,
+               'Implementation-Version': version
+	}
+}
+
+repositories {
+	mavenLocal()
+    jcenter()
+}
+
+dependencies {
+
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.slf4j:slf4j-simple:1.7.21'
+	compile 'com.j256.ormlite:ormlite-core:5.0'
+	compile 'com.j256.ormlite:ormlite-jdbc:5.0'
+	compile 'org.apache.derby:derby:10.12.1.1'
+	compile 'org.apache.derby:derbynet:10.12.1.1'
+	compile 'org.apache.derby:derbyclient:10.12.1.1'
+	compile 'org.apache.commons:commons-lang3:3.4'
+	compile 'org.apache.commons:commons-email:1.4'
+	
+	compile 'com.google.code.gson:gson:2.8.0'
+	
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+	testCompile 'com.h2database:h2:1.4.192'
+	
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
