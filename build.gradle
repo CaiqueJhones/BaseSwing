@@ -29,8 +29,8 @@ dependencies {
 	compile 'org.apache.derby:derbyclient:10.12.1.1'
 	compile 'org.apache.commons:commons-lang3:3.4'
 	compile 'org.apache.commons:commons-email:1.4'
-	
 	compile 'com.google.code.gson:gson:2.8.0'
+	compile 'com.apple:AppleJavaExtensions:1.4'
 	
 
     testCompile 'junit:junit:4.12'
